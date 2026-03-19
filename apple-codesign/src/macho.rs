@@ -651,6 +651,10 @@ impl<'a> MachFile<'a> {
         self.machos.iter()
     }
 
+    pub fn iter_macho_mut(&mut self) -> impl Iterator<Item = &mut MachOBinary<'a>> {
+        self.machos.iter_mut()
+    }
+
     pub fn nth_macho(&self, index: usize) -> Result<&MachOBinary<'a>, AppleCodesignError> {
         self.machos
             .get(index)
